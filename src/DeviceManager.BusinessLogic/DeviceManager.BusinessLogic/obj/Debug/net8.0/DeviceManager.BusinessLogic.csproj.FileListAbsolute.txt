@@ -13,3 +13,4 @@
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/refint/DeviceManager.BusinessLogic.dll
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.pdb
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/ref/DeviceManager.BusinessLogic.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.sourcelink.json

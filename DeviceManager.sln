@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManager.BusinessLogic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManager.WebApi", "src\DeviceManager.WebApi\DeviceManager.WebApi.csproj", "{F4D138F1-8321-403F-98F6-B39A2E944849}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManager.Database", "src\DeviceManager.Database\DeviceManager.Database.csproj", "{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,18 @@ Global
 		{F4D138F1-8321-403F-98F6-B39A2E944849}.Release|x64.Build.0 = Release|Any CPU
 		{F4D138F1-8321-403F-98F6-B39A2E944849}.Release|x86.ActiveCfg = Release|Any CPU
 		{F4D138F1-8321-403F-98F6-B39A2E944849}.Release|x86.Build.0 = Release|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Debug|x64.Build.0 = Debug|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Debug|x86.Build.0 = Debug|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Release|x64.ActiveCfg = Release|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Release|x64.Build.0 = Release|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Release|x86.ActiveCfg = Release|Any CPU
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,5 +85,6 @@ Global
 		{7EA730A6-9D71-43F4-BA9D-C322401FBCDF} = {9090083F-410E-478B-9B32-6B96FCBC235B}
 		{C712E6C8-67E7-4E03-81A7-E97A0B0D8C66} = {7EA730A6-9D71-43F4-BA9D-C322401FBCDF}
 		{F4D138F1-8321-403F-98F6-B39A2E944849} = {9090083F-410E-478B-9B32-6B96FCBC235B}
+		{DFCEA789-6F1A-4654-9D4A-4AC00686BC25} = {9090083F-410E-478B-9B32-6B96FCBC235B}
 	EndGlobalSection
 EndGlobal

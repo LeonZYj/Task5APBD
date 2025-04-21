@@ -1,4 +1,0 @@
-/Users/leonzacharewicz/Desktop/apbdclean/Device.Entries/obj/Debug/net9.0/Device.Entries.GeneratedMSBuildEditorConfig.editorconfig
-/Users/leonzacharewicz/Desktop/apbdclean/Device.Entries/obj/Debug/net9.0/Device.Entries.AssemblyInfoInputs.cache
-/Users/leonzacharewicz/Desktop/apbdclean/Device.Entries/obj/Debug/net9.0/Device.Entries.AssemblyInfo.cs
-/Users/leonzacharewicz/Desktop/apbdclean/Device.Entries/obj/Debug/net9.0/Device.Entries.csproj.CoreCompileInputs.cache

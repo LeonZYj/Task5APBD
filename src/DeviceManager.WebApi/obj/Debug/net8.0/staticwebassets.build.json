@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "6tyWe7zthPQ1/6gh2rCissLD50X4nHtvzUYAcD33WLo=",
+  "Hash": "QnFBmwPyT90cX+C4iyPe01F4geEwImVllv7K0FSJ6iI=",
   "Source": "DeviceManager.WebApi",
   "BasePath": "_content/DeviceManager.WebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }

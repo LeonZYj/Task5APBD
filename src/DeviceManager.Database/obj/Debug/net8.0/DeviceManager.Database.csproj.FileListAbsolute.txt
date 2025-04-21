@@ -1,0 +1,15 @@
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/bin/Debug/net8.0/DeviceManager.Database.deps.json
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/bin/Debug/net8.0/DeviceManager.Database.runtimeconfig.json
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/bin/Debug/net8.0/DeviceManager.Database.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/bin/Debug/net8.0/DeviceManager.Database.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.csproj.AssemblyReference.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.AssemblyInfoInputs.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.AssemblyInfo.cs
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.csproj.CoreCompileInputs.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.sourcelink.json
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/refint/DeviceManager.Database.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/DeviceManager.Database.genruntimeconfig.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Database/obj/Debug/net8.0/ref/DeviceManager.Database.dll

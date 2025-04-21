@@ -9,3 +9,4 @@
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/refint/DeviceManager.Entries.dll
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.pdb
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/ref/DeviceManager.Entries.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.sourcelink.json

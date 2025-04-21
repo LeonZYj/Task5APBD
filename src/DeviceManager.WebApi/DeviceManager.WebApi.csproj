@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DeviceManager.BusinessLogic\DeviceManager.BusinessLogic\DeviceManager.BusinessLogic.csproj" />
     <ProjectReference Include="..\DeviceManager.Entries\DeviceManager.Entries\DeviceManager.Entries.csproj" />
+    <ProjectReference Include="..\DeviceManager.Database\DeviceManager.Database.csproj" />
   </ItemGroup>
 
 </Project>

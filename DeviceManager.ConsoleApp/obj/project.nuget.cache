@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "NJ+0iWqOvno=",
+  "success": false,
+  "projectFilePath": "/Users/leonzacharewicz/Desktop/apbdclean/DeviceManager.ConsoleApp/DeviceManager.ConsoleApp.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Device.Entries is not compatible with net8.0 (.NETCoreApp,Version=v8.0). Project Device.Entries supports: net9.0 (.NETCoreApp,Version=v9.0)",
+      "libraryId": "Device.Entries",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

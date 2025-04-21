@@ -1,0 +1,11 @@
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.AssemblyInfoInputs.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.AssemblyInfo.cs
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.csproj.CoreCompileInputs.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/bin/Debug/net8.0/DeviceManager.Entries.deps.json
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/bin/Debug/net8.0/DeviceManager.Entries.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/bin/Debug/net8.0/DeviceManager.Entries.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/refint/DeviceManager.Entries.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/DeviceManager.Entries.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.Entries/DeviceManager.Entries/obj/Debug/net8.0/ref/DeviceManager.Entries.dll

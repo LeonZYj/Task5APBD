@@ -1,0 +1,15 @@
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.AssemblyInfoInputs.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.AssemblyInfo.cs
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.csproj.CoreCompileInputs.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.csproj.AssemblyReference.cache
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/bin/Debug/net8.0/DeviceManager.BusinessLogic.deps.json
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/bin/Debug/net8.0/DeviceManager.BusinessLogic.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/bin/Debug/net8.0/DeviceManager.BusinessLogic.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/bin/Debug/net8.0/DeviceManager.Entries.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/bin/Debug/net8.0/DeviceManager.Entries.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceMa.5B79BBC2.Up2Date
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/refint/DeviceManager.BusinessLogic.dll
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/DeviceManager.BusinessLogic.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.BusinessLogic/DeviceManager.BusinessLogic/obj/Debug/net8.0/ref/DeviceManager.BusinessLogic.dll

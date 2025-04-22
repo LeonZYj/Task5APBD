@@ -682,7 +682,7 @@
         },
         "runtime": {
           "DeviceManager.BusinessLogic.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -694,7 +694,7 @@
         },
         "runtime": {
           "DeviceManager.Database.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -702,7 +702,7 @@
       "DeviceManager.Entries/1.0.0": {
         "runtime": {
           "DeviceManager.Entries.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

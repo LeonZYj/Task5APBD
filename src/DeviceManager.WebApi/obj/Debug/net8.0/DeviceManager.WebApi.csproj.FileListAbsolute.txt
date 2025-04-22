@@ -92,3 +92,6 @@
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.WebApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.WebApi/bin/Debug/net8.0/DeviceManager.Database.dll
 /Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.WebApi/bin/Debug/net8.0/DeviceManager.Database.pdb
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.WebApi/bin/Debug/net8.0/DeviceManager.WebApi.staticwebassets.endpoints.json
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.WebApi/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/leonzacharewicz/Desktop/apbdclean/src/DeviceManager.WebApi/obj/Debug/net8.0/staticwebassets/msbuild.DeviceManager.WebApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

@@ -4,11 +4,11 @@ namespace DeviceManager.Entries.Devices
 
     public abstract class Device
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public bool IsTurnedOn { get; set; }
 
-        public Device(string id, string name, bool isTurnedOn)
+        public Device(int id, string name, bool isTurnedOn)
         {
             this.Id = id;
             this.Name = name;

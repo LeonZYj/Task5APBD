@@ -6,6 +6,15 @@ namespace DeviceManager.Entries.Devices
     public class SmartWatch : Device, IPowerNotifier, BatteryPowerInterfacesmartwatchca
     {
         private BatteryPercentageFunctionality batteryBattery { get; set; }
+        
+        public SmartWatch() : base("Unknown", "Unnamed SmartWatch", false)
+        {
+            BatteryPercentageFunctionality = new BatteryPercentageFunctionality(100);
+        }
+
+
+        public BatteryPercentageFunctionality BatteryPercentageFunctionality { get; set; }
+
 
         public SmartWatch(string id, string name, bool isTurnedOn, int batteryPercentage)
             : base(id, name, isTurnedOn)

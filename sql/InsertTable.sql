@@ -1,14 +1,17 @@
-INSERT INTO SmartWatch (Id, Name, IsTurnedOn, BatteryLevel)
-VALUES ('SW-1', 'Apple Watch SE2', 1, 27);
+-- Insert devices into base Device table
+INSERT INTO Device (Id, Name, IsEnabled) VALUES
+                                             ('D-100', 'Apple Watch Series 8', 1),
+                                             ('D-200', 'Dell XPS 13', 0),
+                                             ('D-300', 'Raspberry Pi Zero', 1);
 
-INSERT INTO PersonalComputer (Id, Name, IsTurnedOn, OperatingSystem)
-VALUES
-    ('P-1', 'LinuxPC', 0, 'Linux Mint'),
-    ('P-2', 'ThinkPad T440', 0, NULL),
-    ('Capital33', 'BestPC_Ever', 0, '456217865891789');
+-- Insert into Smartwatch (Id auto-generated)
+INSERT INTO Smartwatch (BatteryPercentage, DeviceId) VALUES
+    (78, 'D-100');
 
-INSERT INTO EmbeddedDevice (Id, Name, IsTurnedOn, IpAddress, NetworkName)
-VALUES
-    ('ED-1', 'Pi3', 1, '192.168.1.44', 'MD Ltd.Wifi-1'),
-    ('ED-2', 'Pi4', 1, '192.168.1.45', 'eduroam'),
-    ('ED-3', 'Pi4', 1, 'whatisIP', 'MyWifiName');
+-- Insert into PersonalComputer (Id auto-generated)
+INSERT INTO PersonalComputer (OperatingSystem, DeviceId) VALUES
+    ('Windows 11 Pro', 'D-200');
+
+-- Insert into Embedded (Id auto-generated)
+INSERT INTO Embedded (IpAddress, NetworkName, DeviceId) VALUES
+    ('192.168.0.42', 'IoT_Network', 'D-300');

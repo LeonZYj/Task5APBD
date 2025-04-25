@@ -11,6 +11,11 @@ namespace DeviceManager.Entries.Devices
             OperatingSystem = string.IsNullOrEmpty(operatingSystem) ? "Unknown" : operatingSystem;
         }
 
+        public PersonalComputer() : base("Unknown", "Unknown", false)
+        {
+            OperatingSystem = "Unknown";
+        }
+
         public override void TurnOn()
         {
             if (OperatingSystem == "Unknown")

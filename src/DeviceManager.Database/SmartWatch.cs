@@ -2,8 +2,8 @@ namespace DeviceManager.Database;
 
 public class SmartWatch
 {
-    public string Id { get; set; }
-    public string Name { get; set; }
-    public bool IsTurnedOn { get; set; }
-    public int BatteryLevel { get; set; }
+    public int Id { get; set; }
+    public String BatteryPercentage { get; set; }
+    public String DeviceId { get; set; }
+    
 }

@@ -25,11 +25,11 @@ public interface IServiceMethods
     bool deleteEmbeddedDevice(String id);
     bool updateEmbeddedDevice(EmbeddedDevice device);
 
-    IEnumerable<DeviceClass> getAllDevices();
-    DeviceClass getDeviceID(String id);
-    bool addDevice(DeviceClass device);
+    IEnumerable<DeviceNonAbstractClass> getAllDevices();
+    DeviceNonAbstractClass getDeviceID(String id);
+    bool addDevice(DeviceNonAbstractClass device);
     bool deleteDevice(String id);
-    bool updateDevice(DeviceClass device);
+    bool updateDevice(DeviceNonAbstractClass device);
     
     
     

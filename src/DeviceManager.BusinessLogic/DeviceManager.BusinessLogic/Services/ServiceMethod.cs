@@ -421,11 +421,39 @@ public class ServiceMethod : IServiceMethods
         return true;
     }
 
-    public IEnumerable<DeviceClass> getllDevices()
+    public IEnumerable<DeviceNonAbstractClass> getllDevices()
     {
-        List<DeviceClass> devices = [];
-        
-        string query1111 =
+        List<DeviceNonAbstractClass> devices = [];
 
+        string query1111 = @"SELECT * FROM Device";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            SqlCommand command = new SqlCommand(query1111, connection);
+            connection.Open();
+            
+            SqlDataReader reader = command.ExecuteReader();
+            try
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        var deviceAB = new DeviceNonAbstractClass()
+                        {
+                            Id = reader.GetString(0),
+                            Name = reader.GetString(1),
+                            IsTurnedOn = reader.GetBoolean(2)
+                        };
+                        devices.Add(deviceAB);
+                    }
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+        }
+        return devices;
     }
 }

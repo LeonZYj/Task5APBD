@@ -6,24 +6,18 @@ namespace DeviceManager.Entries.Devices
     public class SmartWatch : Device, IPowerNotifier, BatteryPowerInterfacesmartwatchca
     {
         private BatteryPercentageFunctionality batteryBattery { get; set; }
-        
-        public SmartWatch() : base("Unknown", "Unnamed SmartWatch", false)
-        {
-            BatteryPercentageFunctionality = new BatteryPercentageFunctionality(100);
-        }
-
-
         public BatteryPercentageFunctionality BatteryPercentageFunctionality { get; set; }
-
-
-        public SmartWatch(string id, string name, bool isTurnedOn, int batteryPercentage)
-            : base(id, name, isTurnedOn)
+        
+        public SmartWatch() : base()
+        {
+            batteryBattery = new BatteryPercentageFunctionality(100);
+        }
+        public SmartWatch(string Id, string name, bool isTurnedOn, int batteryPercentage)
+            : base(Id, name, isTurnedOn)
         {
             batteryBattery = new BatteryPercentageFunctionality(batteryPercentage);
             if (batteryBattery.isLowOnBattery())
-            {
                 NotifyLowPower();
-            }
         }
 
         public override void TurnOn()
@@ -73,4 +67,3 @@ namespace DeviceManager.Entries.Devices
         }
     }
 }
-

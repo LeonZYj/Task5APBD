@@ -4,15 +4,21 @@ namespace DeviceManager.Entries.Devices
 
     public abstract class Device
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public bool IsTurnedOn { get; set; }
 
-        public Device(int id, string name, bool isTurnedOn)
+        public Device(string id,string name, bool isTurnedOn)
         {
-            this.Id = id;
+            this.Id = Id;
             this.Name = name;
             this.IsTurnedOn = isTurnedOn;
+        }
+        public Device()
+        {
+            Name = "Unnamed Device";
+            IsTurnedOn = false;
+            Id = Guid.NewGuid().ToString();
         }
 
         public abstract override string ToString();

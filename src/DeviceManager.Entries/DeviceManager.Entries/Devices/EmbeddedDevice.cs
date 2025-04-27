@@ -1,9 +1,4 @@
-using DeviceManager.Entries.Interfaces;
-using DeviceManager.Entries.Devices;
-using DeviceManager.Entries.Exceptions;
 using System.Text.RegularExpressions;
-
-
 
 namespace DeviceManager.Entries.Devices
 {
@@ -13,8 +8,15 @@ namespace DeviceManager.Entries.Devices
         private string _ipAddress;
         private string _networkName;
 
-        public EmbeddedDevice(string id, string name, bool isTurnedOn, string ipAddress, string networkName)
-            : base(id, name, isTurnedOn)
+
+        public EmbeddedDevice() : base()
+        {
+            _ipAddress = "0.0.0.0";
+            _networkName = "Unknown";
+        }
+
+        public EmbeddedDevice(string Id,string name, bool isTurnedOn, string ipAddress, string networkName)
+            : base(Id, name, isTurnedOn)
         {
             if (!IsValidIpAddress(ipAddress))
                 throw new ArgumentException("IP doesn't match the format.");

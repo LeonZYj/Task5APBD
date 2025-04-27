@@ -5,13 +5,13 @@ namespace DeviceManager.Entries.Devices
     {
         public string OperatingSystem { get; set; }
 
-        public PersonalComputer(string id, string name, bool isTurnedOn, string operatingSystem) : base(id, name,
+        public PersonalComputer(string Id, string name, bool isTurnedOn, string operatingSystem) : base(Id, name,
             isTurnedOn)
         {
             OperatingSystem = string.IsNullOrEmpty(operatingSystem) ? "Unknown" : operatingSystem;
         }
 
-        public PersonalComputer() : base("Unknown", "Unknown", false)
+        public PersonalComputer() : base()
         {
             OperatingSystem = "Unknown";
         }

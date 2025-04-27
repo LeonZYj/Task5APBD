@@ -5,8 +5,8 @@ namespace DeviceManager.Entries.Devices
 
     public class EmbeddedDevice : Device
     {
-        private string _ipAddress;
-        private string _networkName;
+        public string _ipAddress;
+        public string _networkName;
 
 
         public EmbeddedDevice() : base()

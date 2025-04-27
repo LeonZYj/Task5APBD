@@ -1,6 +1,9 @@
+using System.Collections;
 using System.ComponentModel.Design;
 using DeviceManager.Entries.Devices;
 using Microsoft.Data.SqlClient;
+using DeviceClass = DeviceManager.Entries.Devices.Device;
+
 
 namespace Device.BusinessLogic.Services;
 
@@ -13,9 +16,9 @@ public class ServiceMethod : IServiceMethods
         this.connectionString = connectionString;
     }
 
-    public IEnumerable<PersonalComputer> GetAllPersonalComputers()
+    public IEnumerable<PersonalComputer> getAllPersonalComputers()
     {
-        List<PersonalComputer> PersonalComputers = [];
+        List<PersonalComputer> personalComputers = [];
 
         string query = @"SELECT d.ID, d.Name , d.IsEnabled, pc.OperatingSystem
            FROM Device d
@@ -32,7 +35,8 @@ public class ServiceMethod : IServiceMethods
                 if (reader.HasRows)
                 {
                     while (reader.Read())
-                    
+                    {
+
                         var personalComputer = new PersonalComputer
                         {
                             Id = reader.GetString(0),
@@ -40,7 +44,7 @@ public class ServiceMethod : IServiceMethods
                             IsTurnedOn = reader.GetBoolean(2),
                             OperatingSystem = reader.GetString(3)
                         };
-                        PersonalComputers.Add(personalComputer);
+                        personalComputers.Add(personalComputer);
                     }
                 }
             }
@@ -50,10 +54,10 @@ public class ServiceMethod : IServiceMethods
             }
         }
 
-        return PersonalComputers;
+        return personalComputers;
     }
 
-    public PersonalComputer GetPersonalComputerID(string id)
+    public PersonalComputer getPersonalComputerID(string id)
     {
         PersonalComputer personalComputer = null;
         String query = @"SELECT d.ID, d.Name , d.IsEnabled, pc.OperatingSystem
@@ -64,7 +68,7 @@ public class ServiceMethod : IServiceMethods
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             var command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue(@id, id);
+            command.Parameters.AddWithValue("@id", id);
             connection.Open();
             var reader = command.ExecuteReader();
             try
@@ -75,7 +79,7 @@ public class ServiceMethod : IServiceMethods
                     {
                         personalComputer = new PersonalComputer
                         {
-                            Id = reader.GetInt32(0),
+                            Id = reader.GetString(0),
                             Name = reader.GetString(1),
                             IsTurnedOn = reader.GetBoolean(2),
                             OperatingSystem = reader.GetString(3)
@@ -92,7 +96,7 @@ public class ServiceMethod : IServiceMethods
         return personalComputer;
     }
 
-    public bool AddPersonalComputer(PersonalComputer personalComputer)
+    public bool addPersonalComputer(PersonalComputer personalComputer)
     {
         string InsertQueryDevice = @"
         INSERT INTO Device (Name, IsEnabled)
@@ -107,21 +111,27 @@ public class ServiceMethod : IServiceMethods
         {
             connection.Open();
 
+            if (string.IsNullOrWhiteSpace(personalComputer.Id))
+            {
+                personalComputer.Id = Guid.NewGuid().ToString();
+            }
+
             using (SqlCommand command1 = new SqlCommand(InsertQueryDevice, connection))
             {
+                command1.Parameters.AddWithValue("@Id", personalComputer.Id);
                 command1.Parameters.AddWithValue("@Name", personalComputer.Name);
                 command1.Parameters.AddWithValue("@IsEnabled", personalComputer.IsTurnedOn);
 
-                int deviceId = (int)command1.ExecuteScalar();
-                personalComputer.Id = deviceId;
+                command1.ExecuteNonQuery();
+            }
 
-                using (SqlCommand command2 = new SqlCommand(InsertQueryPC, connection))
-                {
-                    command2.Parameters.AddWithValue("@OperatingSystem", personalComputer.OperatingSystem);
-                    command2.Parameters.AddWithValue("@DeviceId", deviceId);
 
-                    command2.ExecuteNonQuery();
-                }
+            using (SqlCommand command2 = new SqlCommand(InsertQueryPC, connection))
+            {
+                command2.Parameters.AddWithValue("@OperatingSystem", personalComputer.OperatingSystem);
+                command2.Parameters.AddWithValue("@DeviceId", personalComputer.Id);
+
+                command2.ExecuteNonQuery();
             }
         }
 
@@ -147,11 +157,11 @@ public class ServiceMethod : IServiceMethods
         return true;
     }
 
-    public IEnumerable<SmartWatch> GetSmartWatches(string id)
+    public IEnumerable<SmartWatch> getAllSmartwatches(string id)
     {
         List<SmartWatch> smartWatches = [];
 
-        string query = @"SELECT d.ID, d.Name, d.IsEnable, sw.Batterylif
+        string query = @"SELECT d.ID, d.Name, d.IsEnabled, sw.Batterylife
                         FROM Device d 
                         INNER JOIN SmartWatch sw on d.ID = sw.DeviceID";
 
@@ -169,11 +179,12 @@ public class ServiceMethod : IServiceMethods
                     {
                         var Smartwatch = new SmartWatch
                         {
-                            Id = reader.GetInt32(0),
+                            Id = reader.GetString(0),
                             Name = reader.GetString(1),
                             IsTurnedOn = reader.GetBoolean(2),
                             BatteryPercentageFunctionality = new BatteryPercentageFunctionality(reader.GetInt32(3))
-                        }
+                        };
+
                         smartWatches.Add(Smartwatch);
                     }
                 }
@@ -182,12 +193,13 @@ public class ServiceMethod : IServiceMethods
             {
                 reader.Close();
             }
-            
+
         }
+
         return smartWatches;
     }
 
-    public SmartWatch GetSmartWatch(string id)
+    public SmartWatch getSmartWatch(string id)
     {
         SmartWatch smartWatch = null;
         string query = @"SELECT d.ID, d.Name, d.IsEnable, sw.Batterylif
@@ -210,7 +222,7 @@ public class ServiceMethod : IServiceMethods
                     {
                         smartWatch = new SmartWatch
                         {
-                            Id = reader.GetInt32(0),
+                            Id = reader.GetString(0),
                             Name = reader.GetString(1),
                             IsTurnedOn = reader.GetBoolean(2),
                             BatteryPercentageFunctionality = new BatteryPercentageFunctionality(reader.GetInt32(3))
@@ -226,6 +238,7 @@ public class ServiceMethod : IServiceMethods
 
         return smartWatch;
     }
+
     public bool addSmartWatch(SmartWatch smartWatch)
     {
         string InsertQueryDevice = @"
@@ -247,16 +260,19 @@ public class ServiceMethod : IServiceMethods
                 command1.Parameters.AddWithValue("@Name", smartWatch.Name);
                 command1.Parameters.AddWithValue("@IsEnabled", smartWatch.IsTurnedOn);
 
-                command2.Parameters.AddWithValue("@Id", smartWatch.Id);
-                command2.Parameters.AddWithValue("@BatteryLife", smartWatch.BatteryPercentageFunctionality.GetBatteryLevel());
-
                 command1.ExecuteNonQuery();
+
+                command2.Parameters.AddWithValue("@Id", smartWatch.Id);
+                command2.Parameters.AddWithValue("@BatteryLife",
+                    smartWatch.BatteryPercentageFunctionality.GetBatteryLevel());
+
                 command2.ExecuteNonQuery();
             }
         }
 
         return true;
     }
+
     public bool deleteSmartWatch(string id)
     {
         string query = @"DELETE FROM SmartWatch WHERE Id = @Id;
@@ -278,15 +294,15 @@ public class ServiceMethod : IServiceMethods
     public IEnumerable<EmbeddedDevice> GetEmbeddedDevices()
     {
         List<EmbeddedDevice> embeddedDevices = [];
-        
-        string query =@"SELECT d.ID, d.Name, d.IsEnabled, ed.NetworkName, ed.IPAddress
+
+        string query = @"SELECT d.ID, d.Name, d.IsEnabled, ed.NetworkName, ed.IPAddress
                         FROM Device d 
                         INNER JOIN EmbeddedDevice ed on d.ID = ed.DeviceID";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             SqlCommand command = new SqlCommand(query, connection);
-            
+
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
             try
@@ -297,20 +313,119 @@ public class ServiceMethod : IServiceMethods
                     {
                         var embeddedDevice = new EmbeddedDevice
                         {
-                            Id = reader.GetInt32(0),
+                            Id = reader.GetString(0),
                             Name = reader.GetString(1),
                             IsTurnedOn = reader.GetBoolean(2),
-                            NetworkName = reader.GetString(3),
-                            IPAddress = reader.GetString(4)
+                            _networkName = reader.GetString(3),
+                            _ipAddress = reader.GetString(4)
+                        };
+                        embeddedDevices.Add(embeddedDevice);
+                    }
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+        }
+        return embeddedDevices;
+    }
+    public EmbeddedDevice GetEmbeddedDevice(string id)
+    {
+        EmbeddedDevice embeddedDevice = null;
+        string query = @"SELECT d.ID, d.Name, d.IsEnabled, ed.NetworkName, ed.IPAddress
+                        FROM Device d 
+                        INNER JOIN EmbeddedDevice ed on d.ID = ed.DeviceID
+                        WHERE d.ID = @Id";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Id", id);
+            connection.Open();
+            var reader = command.ExecuteReader();
+
+            try
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        embeddedDevice = new EmbeddedDevice
+                        {
+                            Id = reader.GetString(0),
+                            Name = reader.GetString(1),
+                            IsTurnedOn = reader.GetBoolean(2),
+                            _networkName = reader.GetString(3),
+                            _ipAddress = reader.GetString(4)
                         };
                     }
                 }
             }
+            finally
+            {
+                reader.Close();
+            }
         }
-        
+
+        return embeddedDevice;
+    }
+    public bool addEmbeddedDevice(EmbeddedDevice embeddedDevice)
+    {
+        string InsertQueryDevice = @"
+        INSERT INTO Device (Id, Name, IsEnabled)
+        VALUES (@Id, @Name, @IsEnabled)";
+
+        string InsertQueryPC = @"
+        INSERT INTO EmbeddedDevice (Id, NetworkName, IPAddress)
+        VALUES (@Id, @NetworkName, @IPAddress)";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command1 = new SqlCommand(InsertQueryDevice, connection);
+                var command2 = new SqlCommand(InsertQueryPC, connection);
+
+                command1.Parameters.AddWithValue("@Id", embeddedDevice.Id);
+                command1.Parameters.AddWithValue("@Name", embeddedDevice.Name);
+                command1.Parameters.AddWithValue("@IsEnabled", embeddedDevice.IsTurnedOn);
+
+                command1.ExecuteNonQuery();
+
+                command2.Parameters.AddWithValue("@Id", embeddedDevice.Id);
+                command2.Parameters.AddWithValue("@NetworkName", embeddedDevice.GetNetworkName());
+                command2.Parameters.AddWithValue("@IPAddress", embeddedDevice.GetIpAddress());
+
+                command2.ExecuteNonQuery();
+            }
+        }
+
+        return true;
+    }
+    public bool deleteEmbeddedDevice(string id)
+    {
+        string query = @"DELETE FROM EmbeddedDevice WHERE Id = @Id;
+                        DELETE FROM Device WHERE Id = @Id";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", id);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        return true;
     }
 
+    public IEnumerable<DeviceClass> getllDevices()
+    {
+        List<DeviceClass> devices = [];
+        
+        string query1111 =
 
-
-
+    }
 }

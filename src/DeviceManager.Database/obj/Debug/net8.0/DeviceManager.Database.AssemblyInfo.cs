@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeviceManager.Database")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0363c1ff32fd3c95d533e9a036e570d40577c59")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4bd88bc2f0e195c53ada6e4dc624f79bf865c9f")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeviceManager.Database")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeviceManager.Database")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

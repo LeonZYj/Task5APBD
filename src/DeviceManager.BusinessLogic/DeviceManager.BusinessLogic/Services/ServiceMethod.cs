@@ -16,7 +16,7 @@ public class ServiceMethod : IServiceMethods
         this.connectionString = connectionString;
     }
 
-    public IEnumerable<PersonalComputer> getAllPersonalComputers()
+    public IEnumerable<PersonalComputer>? getAllPersonalComputers()
     {
         List<PersonalComputer> personalComputers = [];
 
@@ -156,8 +156,29 @@ public class ServiceMethod : IServiceMethods
 
         return true;
     }
+    public bool updatePersonalComputer(PersonalComputer personalComputer)
+    {
+        string query = @"UPDATE PersonalComputer SET OperatingSystem = @OperatingSystem WHERE Id = @Id;
+                        UPDATE Device SET Name = @Name, IsEnabled = @IsEnabled WHERE Id = @Id";
 
-    public IEnumerable<SmartWatch> getAllSmartwatches(string id)
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", personalComputer.Id);
+                command.Parameters.AddWithValue("@Name", personalComputer.Name);
+                command.Parameters.AddWithValue("@IsEnabled", personalComputer.IsTurnedOn);
+                command.Parameters.AddWithValue("@OperatingSystem", personalComputer.OperatingSystem);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        return true;
+    }
+
+    public IEnumerable<SmartWatch> getAllSmartWatches()
     {
         List<SmartWatch> smartWatches = [];
 
@@ -199,7 +220,8 @@ public class ServiceMethod : IServiceMethods
         return smartWatches;
     }
 
-    public SmartWatch getSmartWatch(string id)
+   
+    public SmartWatch getSmartWatchID(string id)
     {
         SmartWatch smartWatch = null;
         string query = @"SELECT d.ID, d.Name, d.IsEnable, sw.Batterylif
@@ -290,8 +312,30 @@ public class ServiceMethod : IServiceMethods
 
         return true;
     }
+    public bool updateSmartWatch(SmartWatch smartWatch)
+    {
+        string query = @"UPDATE SmartWatch SET BatteryLife = @BatteryLife WHERE Id = @Id;
+                        UPDATE Device SET Name = @Name, IsEnabled = @IsEnabled WHERE Id = @Id";
 
-    public IEnumerable<EmbeddedDevice> GetEmbeddedDevices()
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", smartWatch.Id);
+                command.Parameters.AddWithValue("@Name", smartWatch.Name);
+                command.Parameters.AddWithValue("@IsEnabled", smartWatch.IsTurnedOn);
+                command.Parameters.AddWithValue("@BatteryLife",
+                    smartWatch.BatteryPercentageFunctionality.GetBatteryLevel());
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        return true;
+    }
+
+    public IEnumerable<EmbeddedDevice> getAllEmbeddedDevices()
     {
         List<EmbeddedDevice> embeddedDevices = [];
 
@@ -330,7 +374,7 @@ public class ServiceMethod : IServiceMethods
         }
         return embeddedDevices;
     }
-    public EmbeddedDevice GetEmbeddedDevice(string id)
+    public EmbeddedDevice getEmbeddedDeviceID(string id)
     {
         EmbeddedDevice embeddedDevice = null;
         string query = @"SELECT d.ID, d.Name, d.IsEnabled, ed.NetworkName, ed.IPAddress
@@ -420,8 +464,30 @@ public class ServiceMethod : IServiceMethods
 
         return true;
     }
+    public bool updateEmbeddedDevice(EmbeddedDevice embeddedDevice)
+    {
+        string query = @"UPDATE EmbeddedDevice SET NetworkName = @NetworkName, IPAddress = @IPAddress WHERE Id = @Id;
+                        UPDATE Device SET Name = @Name, IsEnabled = @IsEnabled WHERE Id = @Id";
 
-    public IEnumerable<DeviceNonAbstractClass> getllDevices()
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", embeddedDevice.Id);
+                command.Parameters.AddWithValue("@Name", embeddedDevice.Name);
+                command.Parameters.AddWithValue("@IsEnabled", embeddedDevice.IsTurnedOn);
+                command.Parameters.AddWithValue("@NetworkName", embeddedDevice.GetNetworkName());
+                command.Parameters.AddWithValue("@IPAddress", embeddedDevice.GetIpAddress());
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        return true;
+    }
+
+    public IEnumerable<DeviceNonAbstractClass> getAllDevices()
     {
         List<DeviceNonAbstractClass> devices = [];
 
@@ -455,5 +521,99 @@ public class ServiceMethod : IServiceMethods
             }
         }
         return devices;
+    }
+    
+    
+    public DeviceNonAbstractClass getDeviceID(string id)
+    {
+        DeviceNonAbstractClass device = null;
+        string query = @"SELECT * FROM Device WHERE Id = @Id";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            var command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Id", id);
+            connection.Open();
+            var reader = command.ExecuteReader();
+
+            try
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        device = new DeviceNonAbstractClass
+                        {
+                            Id = reader.GetString(0),
+                            Name = reader.GetString(1),
+                            IsTurnedOn = reader.GetBoolean(2)
+                        };
+                    }
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+        }
+
+        return device;
+    }
+    public bool addDevice(DeviceNonAbstractClass device)
+    {
+        string InsertQueryDevice = @"
+        INSERT INTO Device (Id, Name, IsEnabled)
+        VALUES (@Id, @Name, @IsEnabled)";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command1 = new SqlCommand(InsertQueryDevice, connection);
+
+                command1.Parameters.AddWithValue("@Id", device.Id);
+                command1.Parameters.AddWithValue("@Name", device.Name);
+                command1.Parameters.AddWithValue("@IsEnabled", device.IsTurnedOn);
+
+                command1.ExecuteNonQuery();
+            }
+        }
+
+        return true;
+    }
+    public bool deleteDevice(string id)
+    {
+        string query = @"DELETE FROM Device WHERE Id = @Id";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", id);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        return true;
+    }
+    public bool updateDevice(DeviceNonAbstractClass device)
+    {
+        string query = @"UPDATE Device SET Name = @Name, IsEnabled = @IsEnabled WHERE Id = @Id";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            {
+                var command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", device.Id);
+                command.Parameters.AddWithValue("@Name", device.Name);
+                command.Parameters.AddWithValue("@IsEnabled", device.IsTurnedOn);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        return true;
     }
 }

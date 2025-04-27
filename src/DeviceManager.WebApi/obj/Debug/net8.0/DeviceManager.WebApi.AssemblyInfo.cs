@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DeviceManager.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c53fbce713b29446cb1840b5736ee440615db58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6d1ceefe844f3f256560ad0147f9326b1806ce3")]
 [assembly: System.Reflection.AssemblyProductAttribute("DeviceManager.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DeviceManager.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
